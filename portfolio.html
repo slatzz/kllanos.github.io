@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Pirata One' rel='stylesheet'>
+        <title>Kristiana's Tubular Website</title>
+        
+                  <style>
+       
+    body {
+        color: rgb(255, 255, 255);
+        padding: 50px;
+        font-family: 'Pirata One';
+        font-size: 1.85em;
+    }
+
+    body { 
+        background-image: url(https://scontent-dfw5-2.xx.fbcdn.net/v/t31.0-8/s960x960/28423287_10208637847462764_1870976584574665915_o.jpg?_nc_cat=104&_nc_sid=7aed08&_nc_ohc=KH1S7irpaeIAX8IC3ZP&_nc_ht=scontent-dfw5-2.xx&_nc_tp=7&oh=74463fa3ae239a29d4b132c4c96473e8&oe=5EA58066)
+
+}  
+    header {
+        font-size: 1.5em;
+        font-weight: bold;
+        
+    }
+    #all-contents {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    /* navigation menu */
+    nav {
+        margin: 0 auto;
+        margin-bottom: 20px;
+        display: flex;
+        padding: 10px;
+
+    }
+    nav header {
+        background-color: rgb(153, 153, 255);
+        display: flex;
+        align-items: center;
+        color: rgb(255, 255, 255);
+        flex: 1;
+    }
+    nav ul {
+        list-style-image: none;
+
+
+    }
+    nav li {
+        display: inline-block;
+        padding: 0 10px;
+        
+    
+    }
+    nav a {
+        background-color: rgb(153, 153, 255);
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        font-size: 1.5em;
+    }
+
+    /* main container area beneath menu */
+    main {
+        
+        display: flex;
+    }
+    .sidebar {
+        margin-right: 25px;
+        padding: 10px;
+    }
+    .sidebar img {
+        width: 350px;
+    }
+    .content {
+        background: rgb(153, 153, 255);
+        flex: 2;
+        padding: 15px;
+        color: rgb(255, 255, 255);
+    }
+    .interests header {
+        font-size: 1.5em;
+        color: rgb(255, 255, 255);
+    }
+    
+</style>
+        
+    </head>
+
+    <body>
+      <div id="all-contents">
+          <nav>
+              <header> Kristiana's Tubular Website</header>
+              <ul>
+                  <li><a href="index.html">Home</a>
+                  </li>
+                  <li><a href="portfolio.html">Portfolio</a>
+                  </li>
+              </ul>
+          </nav>
+          <main>
+              <div class="content">
+                        <h1>Portfolio</h1>
+                        <ul id="portfolio">
+                        </ul>
+                  </div>
+              </main>
+          </div>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+          <script id="portfolioScript">$(document).ready(function() {$.getJSON('projects/projects.json').then(function(data) { data.projects.forEach(function(project){ $('#portfolio').append('<li><a href="projects/' + project.name + '/">' + project.title + ' : ' + project.description + '</a></li>'); }); }); });</script>
+    </body>
+</html>
