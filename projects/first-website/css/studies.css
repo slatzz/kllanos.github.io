@@ -1,0 +1,100 @@
+body {
+    font-family: 'Pirata One';
+    font-size: 1em;
+    background-image: url(https://scontent-dfw5-2.xx.fbcdn.net/v/t31.0-8/s960x960/28423287_10208637847462764_1870976584574665915_o.jpg?_nc_cat=104&_nc_sid=7aed08&_nc_ohc=KH1S7irpaeIAX8IC3ZP&_nc_ht=scontent-dfw5-2.xx&_nc_tp=7&oh=74463fa3ae239a29d4b132c4c96473e8&oe=5EA58066)
+    
+    
+}
+
+header {
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Pirata One';
+}
+[id=all-contents] {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* navigation menu */
+nav {
+    background: rgb(153, 153, 255);
+    margin: 0 auto;
+    display: flex;
+    padding: 10px;
+    font-size: 1.5em;
+}
+nav header {
+    display: flex;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    flex: 1;
+    font-size: 1.5em;
+}
+nav ul {
+    list-style-image: none;
+}
+nav li {
+    display: inline-block;
+    padding: 0 10px;
+}
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* main container area beneath menu */
+main {
+    background: rgb(153, 153, 255);
+    display: flex;
+    padding:inherit;
+}
+[class=content] {
+    flex: 1;
+    border-radius:35px;
+    padding: 15px;
+    margin-top:15px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.content h1, h2, h3, h4, h5, h6 {
+    margin: 10px;
+}
+
+.content section > a {
+    text-decoration: none;
+}
+
+.code {
+    font-family: Georgia;
+    background: #eee;
+    border: 1px solid #ccc;
+    color: #222;
+    white-space: pre;
+    width: 100%;
+    margin-bottom: 20px;
+    overflow: scroll;
+}
+
+.topic-heading {
+    font-family: "Pirata One";
+    padding-left: 50px;
+    text-transform: capitalize;
+}
+
+.line {
+    display: flex;
+    padding: 2px 0;
+}
+
+.line:nth-child(even) {
+    background: #ddd;
+}
+
+.line-number {
+    min-width: 40px;
+    padding-left: 5px;
+    text-align: right;
+    padding-right: 20px;
+}
