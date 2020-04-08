@@ -43,7 +43,7 @@
     console.log(exampleString.length); // Prints 11
 
 // .charAt() - Returns the specific index of a specified string character.
-    console.log(exampleString); // Prints "l"
+    console.log(exampleString.charAt(3)); // Prints "l"
 
 // .concat() - Joins together two or more strings.
     console.log(exampleString.concat("!")); // Prints "Hello World!"

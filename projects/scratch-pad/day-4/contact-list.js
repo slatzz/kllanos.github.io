@@ -97,9 +97,11 @@
         "nameFirst": "Alice",
         "nameLast": "Green"
     }
-]
+    
+     
+],
     // we implemented the length api for you //
-    length: function() {
+   function length(contact) {
 
         return contacts.length;
 
@@ -122,7 +124,9 @@
             }
         }
     }   
-    }    
+    
+     ];
+     
    };
 
 
