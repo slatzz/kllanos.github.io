@@ -30,19 +30,29 @@ function range(start, end) {
     
     var rangeArray = [];
     
+    /* Use a nested while loop in an if/else if statement to check for the
+     * given starting and ending values
+     */
     if(start < end) {
         
         while (start <= end)
         
+    /* Push the starting values into the new rangeArray if the starting value
+     * is less than the ending value
+     */
         rangeArray.push(start++);
         
     } else if(start > end) {
         
         while (start >= end)
         
+    /* Push the starting values into the new Array if the starting value is 
+     * greater than or equal to the ending value
+     */
         rangeArray.push(start--);
     }
     
+    // Return the new rangeArray
     return rangeArray;
     
     // YOUR CODE GOES ABOVE HERE //

@@ -37,104 +37,101 @@
 
 // YOUR CODE GOES BELOW HERE //
 
-   function makeContact(id, nameFirst, nameLast) {
-       return {
-       id: id,
-   nameFirst: nameFirst,
-   nameLast: nameLast
-
- };
- }
-     function makeContactList(id, nameFirst, nameLast) {
-    var contacts = [
-    {
-        "id": 1,
-        "nameFirst": "Max",
-        "nameLast": "Gaudin"
-    },
-    {
-        "id": 2,
-        "nameFirst": "John",
-        "nameLast": "Fraboni"
-    },
-    {
-        "id": 3,
-        "nameFirst": "Alon",
-        "nameLast": "Robinson"
-    },
-    {
-        "id": 4,
-        "nameFirst": "Mykia",
-        "nameLast": "Smith"
-    },
-    {
-        "id": 5,
-        "nameFirst": "Steve",
-        "nameLast": "Price"
-    },
-    {
-        "id": 6,
-        "nameFirst": "George",
-        "nameLast": "Mauer"
-    },
-    {
-        "id": 7,
-        "nameFirst": "Ben",
-        "nameLast": "Schenker"
-    },
-    {
-        "id": 8,
-        "nameFirst": "Jaelle",
-        "nameLast": "Schuerman"
-    },
-    {
-        "id": 9,
-        "nameFirst": "Erika",
-        "nameLast": "Fraboni"
-    },
-    {
-        "id": 10,
-        "nameFirst": "Alice",
-        "nameLast": "Green"
-    }
+/* Return an object using a function called 'makeContact' that takes the 
+ * parameters: id, nameFirst, and nameLast.
+ */
+ 
+function makeContact(id, nameFirst, nameLast) {
     
-     
-],
-    // we implemented the length api for you //
-   function length(contact) {
-
-        return contacts.length;
-
-    },
-    addContact: function(contact){
-
-      return contacts.push(contact);
-    },
-    removeContact: function(contact){
-        for(var i = 0; i < contacts.length; i++){
-           if(contacts[i] === contact) {
-        return contacts.splice(i, 1);
+    return {id: id, 
+            nameFirst: nameFirst, 
+            nameLast: nameLast
            }
-        }
-    },
-    find: function(fullName) {
-        for(var i = 0; i < contacts.length; i++) {
-            if(fullName === contacts[i]["nameFirst"] + " " + contacts[i]["nameLast"]) { 
-            return contacts[i];
-            }
-        }
-    }   
     
-     ];
-     
-   };
+} 
 
 
+function makeContactList(id, nameFirst, nameLast) {
+    /*
+     * You need something here to hold contacts. See length api for a hint:
+     */
+        // Create a variable called 'contacts' and assign it to an Array literal
+        var contacts = [];
+    
+    
+    return {
+        
+         // Return the length of the contact list 
+         length: function() {
+             
+            return contacts.length;
+            
+         },
+        
+          // Push the contacts into the 'contacts' array literal
+         addContact: function(contact) {
+             
+             return contacts.push(contact);
+                 
+             },
+         /* Use a for loop to access the contacts in the contacts list to look
+          * for the first and last names of the contacts. Concat these names
+          * together and return the output
+          */
+         findContact: function findContact(fullName) {
+        
+             for(var i = 0; i < contacts.length; i++) {
+                 
+                 if(fullName === contacts[i]["nameFirst"] + " " + contacts[i]["nameLast"]) {
+                     
+                     return contacts[i];
+                 }
+             }
+        
+         },
+         
+         /* Remove contact Object from contact list by looping through the
+          * contacts list. Check if the contact exists in the list and use
+          * splice method to remove the contact. Return the output.
+          */
+         removeContact: function removeContact(contact) {
+             
+             for(var i = 0; i < contacts.length; i++) {
+                 
+                 if(contact === contacts[i]) {
+                     
+                     return contacts.splice(i, 1);
+                 }
+             }
+        },
+        
+         printAllContactNames: function () {
+             
+            // Create a new array literal to push list of full names into
+            var allContactsArray = [];
+            
+            //Loop through contacts list to concat first and last name Strings
+            for(var i = 0; i < contacts.length; i++) {
+            
+            // Push these new strings into new Array    
+           allContactsArray.push(contacts[i]["nameFirst"] + " " + contacts[i]["nameLast"]);
+            
+            }
+            // Join new lines to return the new Array
+            return allContactsArray.join("\n");
+        
+        }
+        
+    };
+    
+}
+
+// YOUR CODE GOES ABOVE HERE //
 
  
 
+ 
 
-// YOUR CODE GOES ABOVE HERE //
 
 
 

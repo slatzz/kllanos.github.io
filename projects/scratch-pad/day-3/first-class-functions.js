@@ -44,7 +44,7 @@ function createLessThanFilter(base) {
     var lessThanBase  = function (i) {
            
           return i < base;
-      }
+      };
    
     return lessThanBase;
     

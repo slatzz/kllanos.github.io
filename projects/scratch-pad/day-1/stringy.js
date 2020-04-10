@@ -15,8 +15,7 @@
 function length(string) {
     // YOUR CODE BELOW HERE //
     
-    // Use the length function to return the length of the given string value.
-    
+    //Use .length to return the length property of the given string value.
     return string.length;
 
     // YOUR CODE ABOVE HERE //
@@ -29,7 +28,6 @@ function length(string) {
     // YOUR CODE BELOW HERE //
     
     // Use the toLowerCase() function to convert the given string value to lowercase.
-    
     return string.toLowerCase();
 
     // YOUR CODE ABOVE HERE //
@@ -42,7 +40,6 @@ function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
 
     // Use the toUpperCase() function to return the given string value to uppercase.
-    
     return string.toUpperCase();
     
     // YOUR CODE ABOVE HERE //
@@ -67,7 +64,6 @@ function toDashCase(string) {
     // Force a string into a lowercase, dash-case expression
     
     // Replace spaces with dashes using global .replace() function and .toLowerCase() function.
-    
     return string.replace(/[" "]/g, "-").toLowerCase();
     
     // YOUR CODE ABOVE HERE //
@@ -89,7 +85,14 @@ function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
     
     
-  return string.split("")[0] == char.toUpperCase();
+    /* Return a boolean if a given string begins with a specified character.
+     * Split the string value into an array and compare it to the given
+     * character value.
+     * To check for upper and lowercase characters equally, use the 
+     * .toUpperCase() function
+     */
+     
+     return string.split("")[0] == char.toUpperCase();
 
     // YOUR CODE ABOVE HERE //
 }
@@ -108,7 +111,14 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
+    
+    /* Return a boolean value for if a given string ends with a given character.
+     * Acess the last index of the string using .length - 1
+     * To test upper and lowercase equally, use the .toUpperCase() function
+     * to capitalize the last character in the String and the given character
+     * Strictly compare the two values.
+     */
+     
     return string[string.length - 1].toUpperCase() === char.toUpperCase();
     
     // YOUR CODE ABOVE HER                                                                                                                    E //
@@ -121,7 +131,8 @@ function endsWith(string, char) {
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    
+    // Use the assignment operator '+' to concatenate the two String values.
     return stringOne + stringTwo;
 
     // YOUR CODE ABOVE HERE //
@@ -139,8 +150,10 @@ function concat(stringOne, stringTwo) {
  */
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    var args = Array.from(arguments);
     
+    // Create a variable called 'args' to create an Array 
+    var args = Array.from(arguments) ;
+    // Join the spaces in the string together
     return args.join("");
 
     // YOUR CODE ABOVE HERE //
@@ -158,7 +171,9 @@ function join(stringOne, stringTwo) {
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     
-    // Create a function that returns the longest of two strings.
+    /* Compare the length properties of the two String values.
+     * Return the greater of the two using if/else statements.
+     */
 
     if(stringOne.length > stringTwo.length) {
         return stringOne;
@@ -178,7 +193,8 @@ function longest(stringOne, stringTwo) {
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
    
-   return stringTwo.localeCompare(stringOne);
+   // Use the .localeCompare method to compare the String values
+   return stringTwo.localeCompare(stringOne); 
 
     // YOUR CODE ABOVE HERE //
 }
@@ -194,6 +210,7 @@ function sortAscending(stringOne, stringTwo) {
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
+    // Use the .localeCompare method to compare the String values
     return stringOne.localeCompare(stringTwo)
 
 

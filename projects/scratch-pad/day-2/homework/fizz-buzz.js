@@ -12,19 +12,34 @@
 */
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
-
+  
+    // Create a loop to iterate the numbers 1-100
     for(var i = 1; i <= 100; i++) {
-
-  if(i%3 == 0 && i%5 == 0) {
-    console.log("FizzBuzz");
-  } else if(i%3 == 0) {
-    console.log("Fizz");
-  } else if(i%5 == 0){
-    console.log("Buzz");
-  } else {
-    console.log(i);
-  }
-}
+    /* Create an if/else if/else statement to return specified conditions to 
+     * print multiples of three and multiples of 5 under specified conditions
+     */
+     
+    // Log "FizzBuzz" to the console if 'i' is a multiple of 3 and 5
+        if(i%3 == 0 && i%5 == 0) {
+          
+            console.log("FizzBuzz");
+            
+    // Log "Fizz" to the console if 'i' is a multiple of 3       
+        } else if(i%3 == 0) {
+          
+            console.log("Fizz");
+            
+    // Log "Buzz" to the console if 'i' is a multiple of 5        
+        } else if(i%5 == 0){
+          
+            console.log("Buzz");
+            
+    // If none of the conditions apply, log 'i' to the console        
+        } else {
+          
+            console.log(i);
+      }
+    }
 
     // YOUR CODE GOES ABOVE HERE //
 }

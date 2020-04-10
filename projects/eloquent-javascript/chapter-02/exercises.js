@@ -43,7 +43,13 @@ function fizzBuzz(start, end) {
 
 function drawChessboard(number) {
   
-  return 
+var board = "";
+for(var i = 0; i < number; i++){
+ for(var a = 0; a < number; a++){
+  board += (a % 2) == (i % 2) ? " " : "#";
+ }
+ board += "\n";
+}
 
 }
 

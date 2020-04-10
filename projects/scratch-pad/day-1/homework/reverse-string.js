@@ -22,13 +22,19 @@
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
     
+    // Create a new variable
     var revstr;
     
+    // Loop backwards through the String value to access each character
     for (var revstr = "", i = input.length - 1; i>=0; i--) {
-        
+    
+    /* Use the shorthand reassignment operator to assign the backwards values
+     * to the variable
+     */
         revstr += input[i];
     }
     
+    // Return the new variable with the string's reversed characters
     return revstr;
   
   

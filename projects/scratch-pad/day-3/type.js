@@ -15,6 +15,9 @@
 function isArray(value) {
     // YOUR CODE BELOW HERE //
     
+    /* Use the Array.isArray(value) method to return if the given value is 
+     * an Array
+     */
     return Array.isArray(value);
     
     
