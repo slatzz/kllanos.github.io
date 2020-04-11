@@ -11,14 +11,20 @@
 //////////////////////////////////////////////////////////////////////
 // Step 1 - Object Creation //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+
+// Create a new variable and assign it to an Object literal.
 var animal = {};
 
+// Assign a property called 'species' to the Object and assign it a value.
 animal.species = 'cat';
 
+// Assign a name property to the Object and assign it a value.
 animal['name'] = 'fluffy';
 
+// Assign a noises property to the Object and assign an Array literal.
 animal.noises = [];
 
+// Log the animals Object to the console.
 console.log(animal);
 
 
@@ -26,19 +32,19 @@ console.log(animal);
 // Step 2 - Array Creation ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-// Create an empty array called 'noises'
+// Create a new variable called 'noises' and assign it to an Array literal.
 var noises = [];
 
 // Using bracket notation add an element to the array with a string
 noises[0] = 'meow';
 
-// Using an array funcction, add another noise element to the array.
+// Using the push method, add a noise to the Array.
 noises.push('hiss');
 
-// Add another element to the array using another array function.
+// Add another element to the array using the .unshift method.
 noises.unshift('purr');
 
-// Using bracket notation, add an element at the end of the array.
+// Using bracket notation, add another noise to the Array.
 noises[noises.length] = 'yowl'
 
 // Log the length of noises array to the console.
@@ -56,13 +62,15 @@ console.log(noises);
 // Step 3 - Combining Step 1 and 2 ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-// Assign a noises property called 'noises' to the animal array
+/* Using bracket notation, assign a noises property called 'noises' 
+ * to the animal array
+ */
 animal['noises'] = noises
 
-// Add another noise to the 'noises' property
+// Using the push method, add another noise to the noises Array.
 noises.push('chirp')
 
-// Console.log 'animal' array
+// Log the animal Array to the console.
 console.log(animal)
 
 
@@ -101,37 +109,43 @@ console.log(animal)
 //////////////////////////////////////////////////////////////////////
 // Step 6 - A Collection of Animals //////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-// Create a blank list for animals
+
+// Create a variable called 'animals' and assign it an Array literal.
 var animals = [];
 
-// Add the previously created animal to the animals list
+// Push the animal Array to the new 'animals' Array.
 animals.push(animal);
 
-// Show the list on the console
+// Log 'animals' to the
 console.log(animals);
 
 // Create a duck object for the list
 var duck = { species: 'duck', name: 'Jerome', noises: ['quack', 'honk', 'sneeze', 'woosh'] };
 
-// Add the duck to the animals list
+// Using the push method, add the 'duck' Object to the 'animals' Array.
 animals.push(duck);
 
-// Show the animals list on the console
+// Log the 'animals' Array to the console.
 console.log(animals);
 
-// Create a duck object for the list
+/* Create a new variable and assign it an Object with a new animal.
+ * Assign the Object a species, name, and noises property, and assign them
+ * values for each.
+ */
 var bear = { species: 'bear', name: 'Winnie The Pooh', noises: ['growl', 'zzz'] };
 
-// Create a bear object for the list
+/* Create a variable assigned to another animal with species, name, and 
+ * noises properties and assign them values for each.
+ */
 var mouse = { species: 'mouse', name: 'Tom', noises: ['squeak', 'silence'] };
 
-// Add the bear and duck to the animals list
+// Push the new Objects to the 'animals' Array.
 animals.push(bear, mouse);
 
-// Show the animals list on the console
+// Log the 'animals' Array to the console.
 console.log(animals);
 
-// Show the number of animals in the list on the console
+// Log the 'animals' Array's length property to the console.
 console.log(animals.length);
 
 
@@ -147,22 +161,31 @@ console.log(animals.length);
  */  
  
  
- // Create a variable called friends.
+ // Create a variable called friends and assign it to an Array literal.
 var friends = [];
  
  // Create a function called getRandom and returns a random index from animals 
   
 function getRandom (animals) {
       
+      /* Use the Math.floor function and Math.random function to return
+       * a random animal from the 'animals' Array. 
+       */
       return Math.floor(Math.random() * animals.length);
   }
 
+/* Using the push method, use the getRandom function to push the random names
+ * into the 'friends' Array.
+ */
 friends.push(animals[getRandom(animals)].name);
 
+// Log the 'friends' Array to the console.
 console.log(friends);
 
+// Use bracket notation to add the new 'friends' Array to the 'animals' Array.
 animal['friends'] = friends;
 
+// Log the 'animals' Array to the console.
 console.log(animal);
 
 

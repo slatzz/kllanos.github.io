@@ -20,12 +20,18 @@
 
 function search(list, animalName) {
     
+    // Loop through the 'list' Array using a for loop.
     for (var i = 0; i < list.length; i++) {
         
+        /* Use a conditional statement to return if the list's 'name' 
+         * property matches the given animalName value.
+         */
+         
         if (list[i].name === animalName) {
             
             return list[i]
-            
+          
+        // Return null if the 'name' property is not found.    
         } else if (i === list.length-1) {
             
             return null
@@ -47,12 +53,23 @@ function search(list, animalName) {
  
 function replace(animals, name, replacement) {
     
+    // Loop through the 'animals' Array using a for loop.
     for (var i = 0; i < animals.length; i++) {
         
+        /* Use a conditional statement and replace the 'name' value 
+         * with the 'replacement' value if it already exists in the 
+         * 'animals' Array.
+         */
         if (animals[i].name === name) {
             
+            /* Use the .splice method to replace the 'name' value with the
+             * 'replacement' value.
+             */
             animals.splice(i, 1, replacement);
             
+        /* If there are no replacements, return null. Access all the last elements
+         * of the array by using the .length - 1 property.
+         */
         } else if (i === animals.length-1) {
             
             return null
@@ -73,12 +90,20 @@ function replace(animals, name, replacement) {
 
 function remove(animals, name) {
 
+// Loop through the 'animals' Array using a for loop.
 for (var i = 0; i < animals.length; i++) {
         
+        /* Using a conditional statement, use the .splice method to remove
+         * the 'name' value if it exists in the 'animals' Array.
+         */
         if (animals[i].name === name) {
             
             animals.splice(i, 1);
-            
+        
+        /* Use the .length - 1 property to return null if the 'name' value
+         * does not exist in the 'animals' Array.
+         */
+           
         } else if (i === animals.length-1) {
             
             return null
@@ -92,16 +117,32 @@ for (var i = 0; i < animals.length; i++) {
 //////////////////////////////////////////////////////////////////////
 function add(animals, animal) {
     
+    /* Use a conditional statement to access the length of the 'animals' Array
+     * 'name' and 'species' properties.
+     */
     if (animal.name.length > 0 && animal.species.length > 0) {
         
+        // Loop through the 'animals' Array with a for loop.
         for (var i = 0; i < animals.length; i++) {
             
+            /* Use a conditional statement to compare the looped elements with
+             * the 'name' property of the 'animal' Object.
+             */
             if (animals[i].name === animal.name) {
                 
+                /* Return null if the 'name' element is the same as the 
+                 * 'animal' property.
+                 */
                 return null;
                 
+            /* Use the .length - 1 property to compare the last element of the 
+             * 'animals' Array with the looped element
+             */
             } else if (i === animals.length - 1) {
                 
+                /* Use the push method to push the 'animal' Object into the
+                 * 'animals' Array.
+                 */
                 animals.push(animal)
             }
         }
