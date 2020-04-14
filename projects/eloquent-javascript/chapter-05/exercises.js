@@ -2,7 +2,12 @@
 // flatten /////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function flatten() {
+function flatten(array) {
+
+/* Use the .reduce method to flatten the array and use .concatmethod to join
+ * the elements back into an empty array
+ */
+return array.reduce((flat, current) => flat.concat(current), []);
 
 }
 
@@ -10,15 +15,25 @@ function flatten() {
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function loop() {
-
+function loop(start, test, update, body) {
+  
+  // Use a loop to run the value through the various parameters
+  for(var i = start; test(i); i = update(i)) {
+    
+    body(i);
+    
+  }
+  
 }
 
 // /////////////////////////////////////////////////////////////////////////////
 // every ///////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function every() {
+function every(value, test) {
+  
+  // Use .every method to test if the value passes every test
+  return value.every(test);
 
 }
 
@@ -26,9 +41,29 @@ function every() {
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
-
+function dominantDirection(texts) {
+  
+  // Assign a new variable to the countBy funttion
+  let countArr = countBy(texts, function(text){
+    
+    // Return a name for the object
+    let characterInfo = characterScript(text.charCodeAt())
+   
+   // Return the direction of the character script
+    if(characterInfo){
+      return characterInfo.direction;
+    }
+  });
+  // Sort the array by the direction of the characters
+  countArr.sort(function(a, b){
+    return b.count - a.count;
+  })
+  // Log counterArr to the console
+  return countArr[0].name;
 }
+  
+
+
 
 // /////////////////////////////////////////////////////////////////////////////
 //  //////////////////////////////////////////////////////

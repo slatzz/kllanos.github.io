@@ -6,6 +6,7 @@
 
 function min(num1, num2) {
   
+  // Return the smallest of two numbers with Math.min function
   return Math.min(num1, num2);
 
 } 
@@ -16,9 +17,12 @@ function min(num1, num2) {
 // Write a function that returns true if a number is even.
 
 function isEven(number) {
-  
+ 
+ // Return true when a number is even 
  if (number % 2 == 0) {
    return true;
+   
+   // Return false when a number is odd
  } else {
    return false;
  }
@@ -35,6 +39,8 @@ function isEven(number) {
  
 function countChars(str, char) {
   
+  // Use the .split method to access the characters in a string
+  // Return the number of times a character occurs in a string
   return str.split(char).length - 1;
 
 }
@@ -45,11 +51,15 @@ function countChars(str, char) {
 
 function countBs(string) {
 
+ // Use .split method to look for instances of "B" in a string
+ // Return the instances "B" occurs in string
  return string.split("B").length - 1;
 
 }
 
- countBs(string);
+
+ 
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
