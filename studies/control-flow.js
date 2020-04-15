@@ -85,6 +85,10 @@
  *     console.log(final output);
  *     break;
  *
+ *  - We use switch statements when we are testing single values, such 
+ *    as a single Number or String. If/else if/else statements are better 
+ *    for testing ranges conditions and boolean values.
+ *
  * 6. LET'S PUT IT ALL TOGETHER AGAIN. . .  
  *
  *    Create a switch statement that outputs the cost of produce. First, we 
@@ -116,4 +120,4 @@
         default:
         console.log("Invalid item");
         break;
-      };
+      }

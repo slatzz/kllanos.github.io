@@ -47,6 +47,13 @@ _.identity = function(value) {
 * _.typeOf([1,2,3]) -> "array"
 */
 
+
+
+
+
+
+
+
 // Assign a function declaration to _.typeOf
 _.typeOf = function(value){
 
@@ -149,8 +156,6 @@ _.first = function(array, number) {
 
 
 
-
-
 /** _.last
 * Arguments:
 *   1) An array
@@ -170,6 +175,70 @@ _.first = function(array, number) {
 */
 
 
+_.last = function (array, number) {
+ 
+/** 
+ * I: An array and a number
+ * O: If array is not an array, return an array literal. If the number is not
+ *    a given  number or not a number datatype, return the last element of the
+ *    array. In all other events, return the last element of array.
+ * C: N/A
+ * E: Negative integers?
+ *    Numbers greater than the length of the array?
+ */
+    
+    // Check if the array is an array datatype or if the number is negative
+    // If neither of these is true, return an array literal.
+    // Create an array literal to push the output value into
+    // Loop backwards through the array value and push results into new array
+    // Check if number is greater than the length of the array
+    // Return results array
+    
+    // Check if the array is an array datatype or if the number is negative
+    if(!Array.isArray(array) || number <= 0) {
+    // If not an array, return an array literal
+        return [];
+    }
+    // Create an array literal to push the output value into
+    let results = [];
+    
+    let i;
+    
+        if(number > array.length) {
+           
+            i = 0;
+            
+        } else {
+            
+            i = array.length - number;
+        }
+    
+    // Loop with the stopping condition as the number parameter
+        for(i; i < array.length; i++) {
+            
+            results.push(array[i]);
+            
+        }
+        
+        if(isNaN(number)) {
+            results = array[array.length - 1];
+        }
+        
+    return results;
+    
+};
+
+
+
+
+
+
+
+
+
+
+
+_.indexOf = function(array, value) {
 /** _.indexOf
 * Arguments:
 *   1) An array
@@ -186,6 +255,40 @@ _.first = function(array, number) {
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+/**
+ * I: An array and a value
+ * O: Return the index at which value first occurs. Return -1 if value is not 
+ *    in the array. 
+ * C: Do not use the indexOf method
+ * E: Multiple occurances of value?
+ *    Value not in array?
+ */
+ 
+ // Loop through array to return index of first occurance of value
+    // Check for multiple occurances with if statement and strictly compare values
+ // Conditional statement to return -1 if value is not in array
+ 
+  // Loop through array to return index of first occurance of value
+ for(let i = 0; i < array.length; i++) {
+     
+     // Return only the first occurance of the value's index
+     if(array[i] === value) {
+         
+         return i;
+        
+        }
+    }
+    // Return -1 if the value is not found in the array
+    return -1;
+    
+};
+     
+ 
+    
+
+
+
+ _.contains = function(array, value) {
 
 /** _.contains
 * Arguments:
@@ -201,6 +304,38 @@ _.first = function(array, number) {
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+
+/** 
+ * I: An array and a value
+ * O: Return boolean of true if array contains the input value.
+ *    Return false if the array does NOT contain the input value.
+ * C: Must use a ternary operator 
+ * E: Did we strictly compare values?
+ *    Value is not given?
+ */
+ 
+
+ // Use ternary operators to check if an input value appears in a given array
+ // Return true if the value is in the Array
+ // Return false if the value is not in the Array
+ // Return nothing if there is no value to compare
+     
+     // Use a ternary operator to return if the value is in the array
+     return array.includes(value) ? true : false;
+    
+};
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /** _.each
@@ -218,6 +353,23 @@ _.first = function(array, number) {
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
+_.each = function(collection, action) {
+    
+    if(Array.isArray(collection)) {
+        
+        for(var i = 0; i < collection.length; i++) {
+            
+            action(collection[i], i, collection);
+        }
+        
+    } else {
+        
+        for (var key in collection) {
+            
+            action(collection[key], key, collection);
+        }
+    }
+};
 
 
 /** _.unique
@@ -229,6 +381,41 @@ _.first = function(array, number) {
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
+
+/**
+ * I: An array
+ * O: A new array with all duplicates removed
+ * C: Use _.indexOf()
+ * E: N/A
+ * 
+ * 
+ */ 
+_.unique = function(array) {
+     var newArray = [];
+    
+    // Loop through the Array using a for loop.
+    for(var i = 0; i < array.length; i++) {
+        
+        /* Using a conditional statement and .index() method access the
+         * elements of the Array.
+         */
+        if(newArray.indexOf(array[i]) === -1) {
+           
+           // Push the elements into the new Array. 
+           newArray.push(array[i]);
+        } 
+    }
+    // Return the new Array.
+    return newArray;
+    
+};
+
+
+
+
+
+
+
 
 
 /** _.filter
@@ -247,6 +434,37 @@ _.first = function(array, number) {
 *   use _.each in your implementation
 */
 
+// Loop through the array
+// Create a new variable and assign it to an Array literal
+// 
+
+
+_.filter = function filter(array, funky) {
+    
+    let newArray = [];
+    
+    let result;
+    
+    for(let i = 0; i < array.length; i++) {
+        
+        result = funky(array[i], i, array);
+            
+            if(result === true) {
+            
+            newArray.push(array[i]);
+            
+        } 
+     }
+    
+    return newArray;
+    
+};
+
+
+
+
+
+
 
 /** _.reject
 * Arguments:
@@ -261,6 +479,44 @@ _.first = function(array, number) {
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
+// Input: An array and function
+// O: New array of elements that returned false when filter did not return true
+// C: Must use _.filter() in the function
+// E: N/A
+
+// Loop through the array
+// Check if filter does not return values
+
+_.reject = function(array, funky) {
+    //what does filter actually give us?
+    //it gives us the values that passed a true false test
+        //this means the filter to grab if done correctly should work.
+    //run filter (same inputs)
+    //filterResults
+    //we want to compare this with array
+    //anything not in filterResults that is in new array push into results
+    //so. push array
+    let results =[];
+    
+    let filterResults = _.filter(array, funky);
+    
+    for(let i = 0; i < array.length; i++) {
+        
+        if(filterResults.includes(array[i])) {
+            
+        } else {
+            
+            results.push(array[i]);
+        }
+    }
+  
+    return results;
+};
+    
+   
+
+ 
+    
 
 /** _.partition
 * Arguments:
@@ -282,6 +538,21 @@ _.first = function(array, number) {
 */
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /** _.map
 * Arguments:
 *   1) A collection
@@ -297,6 +568,19 @@ _.first = function(array, number) {
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
+
+
+
+
+
+// STOP HERE FOR NOW <3 :)
+
+
+
+
+
+
+
 
 
 /** _.pluck

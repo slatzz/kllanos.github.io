@@ -12,6 +12,15 @@
  */         var myCat = "Sheba"; // myCat is initialized.
             console.log(myCat); // Prints "Sheba"
             
+/*          - We can also use the shorthand assignment operator "+=" to
+ *            concat strings together and in arithmetic operations.
+ */         var firstName = "Kris";
+            firstName += "tiana"; 
+            console.log(firstName); // Prints "Kristiana"
+            
+            var addMeToSomething = 100;
+            addMeToSomething += 500;
+            console.log(addMeToSomething); // Prints 600
  
 /*      - ARITHMETIC OPERATORS are used for mathematical calculations.
  *
@@ -46,11 +55,15 @@
 //          Note: Use ">=" for greater than or equal to calculations.
             console.log(65 >= 66); // Prints false
             
-//          3. Use "==" to see if a value is equal to another value.
+//          3. Use "==" to see if a value is LOOSELY equal to another value.
             console.log("9" == 9); // Prints true
+//          Note: Prints true because the code regonizes both values contain
+//          the number 9.
             
 //          4. Use "===" to STRICTLY compare values.
             console.log("9" === 9); // Prints false
+//          Note: Prints false because the string "9" is not equal to a 
+//          numerical value of 9. Different datatypes are not stictly equal.
             
 //          5. Use "!" to evaluate if values are not equal.
             console.log("18" != 18); // Prints false
@@ -123,7 +136,9 @@
             
 
 /*      - TERNARY OPERATOR (a ? b: c) is a conditional operator evaluating if
- *          a given operand (condition) is true or false. 
+ *          a given operand (condition) is true or false.
+ *
+ *          TERNARY SYNTAX: (condition ? value if true : value if false)
  */         var age = 18;
-            var entersBar = (age >= 21) ? "C'mon in!" : "Scram, kiddo!" 
+            var entersBar = (age >= 21) ? "C'mon in!" : "Scram, kiddo!"; 
             console.log(entersBar); // Prints "Scram, kiddo!"

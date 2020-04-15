@@ -82,4 +82,31 @@
  *   - Let statements are hoisted to the top of their scope. They
  *     are not accessible in the code until the interpreter reaches
  *     the line where let is declared.
+ *
+ *
+ * HOISTING
+ * 
+ * 0. Variables are available at the stop of their scopes. Hoisting refers to
+ *    the placement at which the variable is available within our code.
+ */     
+      console.log(hoistExample); // Prints undefined
+      var hoistExample; 
+      hoistExample = "I won't log to the console!";
+      // The variable did not print because JS only hoists declarations.
+    
+      var x = 30;
+      console.log(x + " " + y); // Prints 30 undefined
+      var y = 40;
+      
+      console.log(x + y); 
+/*    Prints 70 because the variables have been declared above console.log()
+ *
+ * 1. Variables defined with let or const cannot be accessed before they are
+ *    declared:
+ *
+ *       console.log(printMe); // Ref Error: Cannot access 'printMe'
+ *       const printMe = "Hey, I want to be logged!";
+ *        
+ *       console.log(printMeToo); // Ref Error: Cannot access 'printMeToo'
+ *       let printMeToo = "Maybe try printing me?";
  */

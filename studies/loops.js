@@ -3,7 +3,12 @@
  *
  * 0. Our code reads from top to bottom, however we can control the flow of our
  *    code with loops. Loops tell our code to loop back around and run a 
- *    specific number of times or stop running when a specified condition is met. 
+ *    specific number of times or stop running when a specified condition 
+ *    is met. 
+ *      
+ *    CAUTION: If we do not set a clear stopping condition, then we 
+ *    run the risk of creating an infinite loop. We can avoid this by coding
+ *    exactly when and where we want our loop to stop.
  *
  * 1. TYPES OF LOOPS:
  *
@@ -14,7 +19,7 @@
                 while(counter >= 0) {
                     console.log(counter);
                     counter--;
-                };
+                }
 /*              Prints 6
  *                     5
  *                     4
@@ -34,8 +39,8 @@
  *               Start: 0 
  *               Stop: 8
  */              for(var i = 0; i <= 8; i+=2) { 
-                 console.log(i)
-                 };
+                 console.log(i);
+                 }
 /*               Prints  0
  *                       2
  *                       4

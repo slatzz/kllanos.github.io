@@ -7,6 +7,8 @@
  *    declaring the function by typing the "function" keyword. Second, we call  
  *    or invoke a function using the function name and specified arguments.
  *
+ *    NOTE: Functions optionally take inputs and give outputs.
+ *
  * 1. CREATING A FUNCTION: FUNCTION SYNTAX AND EXAMPLE
  *
  *    - In our pseudocode, we can outline IOCE: Input, Output, Constraints,
@@ -27,7 +29,7 @@
  *          Parameters are separated by commas and placed within parantheses.
  */   return par1 + par2; /* Place code within curly braces. Return statements
  *       are exclusive to functions and tell the input values what to do.
- */     }; // Close curly braces
+ */     } // Close curly braces
       
       sum(1, 2); /* Prints 3. 
  *       Note: In this example, we are adding together two numbers. Invoke 
@@ -52,25 +54,67 @@
  *     Let's practice assigning a function to a variable.
  *
  *     Create a function that adds two numbers together.
- */    function sum(num1, num2) {
+ */    function add(num1, num2) {
        return num1 + num2;
-       };
+       }
        
 //     Invoke the function.
-       sum(1, 2); // Prints 3
+       add(1, 2); // Prints 3
        
-//     Declare a variable and assign it to the function       
-       var assignFunctionToVar = sum(1, 2);
-
-//     Console.log the new variable and pass 100 through the function.
-       console.log(assignFunctionToVar + 100); // Prints 103
+//     Assign a function a variable
+       var x = function example(str1, str2) {
+              return str1 + str2;
+       };
+              var y = x("Hello ", "World");
+              console.log(y); // Prints "Hello World"
+//     
 
 
 /* 4. A FUNCTION'S SCOPE is local to its block of code. Functions can be 
  *    declared anywhere in their scope, and they are available anywhere in
  *    their local scope before or after its declaration. Functions have access
- *    to their parent scopes within their closures. Closures are identified by
- *    the curly braces surrounding a functions' data. Data from these various
- *    closures are available to the function and can be referenced throughout
- *    the code.
+ *    to their parent scopes within their closures. 
  */
+       var insideVariable = 20;
+       
+              function scopeExample() {
+                     
+              insideVariable = 10;
+       }
+              console.log(insideVariable);
+       
+              scopeExample(); // Prints 20 
+              
+//     But if we log to the console within the scope of the function...
+ 
+       insideVariable = 30;
+       
+              function anotherScopeExample() {
+                     
+              insideVariable = 10;
+              
+              console.log(insideVariable);
+       }
+       
+              anotherScopeExample(); // Prints 10
+ 
+/*     
+ *    A CLOSURE is a nested function with access to its parent function's 
+ *    variables.
+ */    function parentFunc() {
+        
+       var count = 0;
+
+              function childFunc() {
+                     
+              count = count + 1;
+              return count;
+  }
+       return childFunc;
+}
+
+       var letsCount = parentFunc();
+       console.log(letsCount()); // Prints 1
+       console.log(letsCount()); // Prints 2
+       console.log(letsCount()); // Prints 3
+       

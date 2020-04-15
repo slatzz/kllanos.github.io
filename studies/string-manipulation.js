@@ -39,9 +39,6 @@
  * STRING METHODS AND EXAMPLES:
  */ var exampleString = "Hello World";
 
-// .length() - Returns the length of a string.
-    console.log(exampleString.length); // Prints 11
-
 // .charAt() - Returns the specific index of a specified string character.
     console.log(exampleString.charAt(3)); // Prints "l"
 
