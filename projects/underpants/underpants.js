@@ -48,12 +48,6 @@ _.identity = function(value) {
 */
 
 
-
-
-
-
-
-
 // Assign a function declaration to _.typeOf
 _.typeOf = function(value){
 
@@ -95,7 +89,8 @@ _.typeOf = function(value){
 *   2) A number
 * Objectives:
 *   1) If <array> is not an array, return []
-*   2) If <number> is not given or not a number, return just the first element in <array>.
+*   2) If <number> is not given or not a number, return just the first 
+*       element in <array>.
 *   3) Otherwise, return the first <number> items of <array>
 * Edge Cases:
 *   1) What if <number> is negative?
@@ -143,10 +138,13 @@ _.first = function(array, number) {
             results.push(array[i]);
         } 
         
+        // Return nothing if the number is not give or NaN
         if(results.length == 0) {
             
             results = array[0];
         }
+        
+    // Return the results
     return results;
 };
 
@@ -162,7 +160,8 @@ _.first = function(array, number) {
 *   2) A number
 * Objectives:
 *   1) If <array> is not an array, return []
-*   2) If <number> is not given or not a number, return just the last element in <array>.
+*   2) If <number> is not given or not a number, return just the last element 
+*       in <array>.
 *   3) Otherwise, return the last <number> items of <array>
 * Edge Cases:
 *   1) What if <number> is negative?
@@ -174,7 +173,7 @@ _.first = function(array, number) {
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
-
+// Create a function called _.last with the parameters of an array & number
 _.last = function (array, number) {
  
 /** 
@@ -202,8 +201,10 @@ _.last = function (array, number) {
     // Create an array literal to push the output value into
     let results = [];
     
+    // Declare 'i' as variable
     let i;
-    
+        
+        // Assign 'i' based on array length
         if(number > array.length) {
            
             i = 0;
@@ -223,21 +224,12 @@ _.last = function (array, number) {
         if(isNaN(number)) {
             results = array[array.length - 1];
         }
-        
+     // Return the results   
     return results;
     
 };
 
-
-
-
-
-
-
-
-
-
-
+// Create a function called _.indexOf and assign it the parameters of array & value
 _.indexOf = function(array, value) {
 /** _.indexOf
 * Arguments:
@@ -284,10 +276,7 @@ _.indexOf = function(array, value) {
 };
      
  
-    
-
-
-
+// Create a function called _.contains and assign an array & value as parameters
  _.contains = function(array, value) {
 
 /** _.contains
@@ -327,17 +316,6 @@ _.indexOf = function(array, value) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 /** _.each
 * Arguments:
 *   1) A collection
@@ -353,19 +331,25 @@ _.indexOf = function(array, value) {
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
+
+// Create a function called _.each that takes a collection and action as parameters
 _.each = function(collection, action) {
     
+    // Check if the collection is an array
     if(Array.isArray(collection)) {
         
+        // Loop through the array with a for loop if an array
         for(var i = 0; i < collection.length; i++) {
             
+            // Call function for each of the array's elements
             action(collection[i], i, collection);
         }
         
     } else {
-        
+        // Use a for in loop if collection is an object
         for (var key in collection) {
             
+            // Call function for each of the object's properties
             action(collection[key], key, collection);
         }
     }
@@ -390,6 +374,8 @@ _.each = function(collection, action) {
  * 
  * 
  */ 
+ 
+// Create a function called _.unique that takes an array as a parameter
 _.unique = function(array) {
      var newArray = [];
     
@@ -438,31 +424,31 @@ _.unique = function(array) {
 // Create a new variable and assign it to an Array literal
 // 
 
-
+// Create a function called _.filter that takes an array and function as parameters
 _.filter = function filter(array, funky) {
     
+    // Create a variable and assign it as an array literal
     let newArray = [];
     
+    // Create a result to assign the function to
     let result;
     
+    // Loop through the array
     for(let i = 0; i < array.length; i++) {
         
         result = funky(array[i], i, array);
             
+            // Push elements that pass the test into the new array
             if(result === true) {
             
             newArray.push(array[i]);
             
         } 
      }
-    
+    // Return the new array 
     return newArray;
     
 };
-
-
-
-
 
 
 
@@ -487,6 +473,7 @@ _.filter = function filter(array, funky) {
 // Loop through the array
 // Check if filter does not return values
 
+// Create a function called _.reject that takes an array and function as parameters
 _.reject = function(array, funky) {
     //what does filter actually give us?
     //it gives us the values that passed a true false test
@@ -496,27 +483,29 @@ _.reject = function(array, funky) {
     //we want to compare this with array
     //anything not in filterResults that is in new array push into results
     //so. push array
-    let results =[];
     
+    // Create a new variable and assign it to an array literal
+    let results = [];
+    
+    // Assign the filter function to a variable
     let filterResults = _.filter(array, funky);
     
+    // Loop through the array
     for(let i = 0; i < array.length; i++) {
         
+        // Check if elements pass the test
         if(filterResults.includes(array[i])) {
             
         } else {
-            
+            // Push elements that do not pass tests into new array
             results.push(array[i]);
         }
     }
-  
+    // Return the results
     return results;
 };
     
    
-
- 
-    
 
 /** _.partition
 * Arguments:
@@ -538,17 +527,47 @@ _.reject = function(array, funky) {
 */
 
 
-
-
-
-
-
-
-
-
-
-
-
+/** Create a new function called _.partition that takes an array and function
+ * as parameters
+ */
+_.partition = function(array, funky) {
+ 
+ 
+ // Create a new variable and assign it an array literal  
+ let subTruthy = []; 
+    
+    // Create another variable and assign it to an array literal
+    let subFalsey = [];
+    
+    // Create another variable assigned to an array literal 
+    let results = []; 
+    
+    // Create a variable to hold the function results
+    let funkResult;
+    
+    // Loop throught the array
+    for(let i = 0; i < array.length; i++) {
+        
+        // Assign the function results to the variable funkResult
+        funkResult = funky(array[i], i, array); 
+        
+        if(funkResult === true) {
+            
+            //Push results that evaluate true into array
+            subTruthy.push(array[i]);
+            
+        } else {
+            
+            // Push results that evaluate false into array
+            subFalsey.push(array[i]);
+        }
+    }
+    // Push the new arrays into one results array
+    results.push(subTruthy, subFalsey);
+    
+    //Return the results
+    return results;
+};
 
 
 
@@ -570,16 +589,36 @@ _.reject = function(array, funky) {
 */
 
 
-
-
-
-// STOP HERE FOR NOW <3 :)
-
-
-
-
-
-
+// Create a function called _.map taking a collection and function as parameters
+_.map = function(collection, funky) {
+    
+    // Create a variable assigned to an array literal
+    let funkyCollection =[];
+    
+    // Check if collection is an array
+    if(Array.isArray(collection)) {
+        
+        // Loop through the array
+        for(let i = 0; i < collection.length; i++) {
+            
+            // Push values into array
+            funkyCollection.push(funky(collection[i], i, collection));
+            
+        }
+        
+    }else {
+        
+        // If value is an object, loop through object with a for in loop
+        for(let key in collection) {
+            
+            // Push values into array
+            funkyCollection.push(funky(collection[key], key, collection));
+        }
+    }
+    
+    // Return new array
+    return funkyCollection;
+};
 
 
 
@@ -593,6 +632,41 @@ _.reject = function(array, funky) {
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
+
+/** Create a function called _,pluck that takes an array and object
+ * property as parameters
+ */
+_.pluck = function(array, prop) {
+    /**Input-array and property
+     * Output-an array of the value of property
+     * Constraints-use map
+     * Edge-unknown
+    */
+
+//the output will be an array with this function applied to it.
+        //we want this function to convert the object at each index of the 
+        // array, to the value of the key of each object.
+        //this function will be operating on an object.
+        //we want the end of this function to return a string.
+        //---------we're operating on an object.
+        //grab the string of the name from that object
+        //return that
+        
+    // Assign the map function to a new variable    
+    let results = _.map(array, function(object, index, array) {
+        
+        // Return the object values
+        return object[prop];
+    });
+    
+    // Return the results of the map array
+    return results;
+};
+
+
+
+
 
 
 /** _.every
@@ -617,6 +691,101 @@ _.reject = function(array, funky) {
 */
 
 
+
+/** Create a function called _.every that takes a collection and function as
+ * its parameters
+ */ 
+_.every = function(collection, funky) {
+    
+/**
+ * I: A collection and function
+ * O: A boolean value
+ * C: Return a boolean based on all truthy or falsey outputs. 
+ * E: What if function doesn't return a boolean?
+ *    What if function is not given?
+ * 
+ * 1. _.map() INPUT: Collection and function :: OUTPUT: Collection function(value)
+ * //  _.map(array, function(object, index, array)
+ * 2. _.partition() INPUT: An array and func :: OUTPUT: Array: [[Truthy],[Falsey]]
+ * 3. _.filter() INPUT: An array and function :: OUTPUT: Everything that passed
+ * true in an array
+ * 4. _.reject(): An array and function :: OUTPUT: Everything that failed as
+ * false in an array
+ * 
+ * 
+ * 5. _.every() Input: Collection and function :: OUTPUT: One-drop boolean
+ * 
+ * // Invoke map function
+ *  // Assign map results into variable
+ *  // Loop over results
+ *  // if map results[i] return false
+ *  // after loop return true
+ */ 
+ 
+    // Create a new variable
+    let mapResults;
+ 
+    // Check if there are 2 arguments being passed
+    if(arguments.length == 2) {
+ 
+            mapResults = _.map(collection, funky);
+    
+    // If the collection is an array pass the map function        
+    } else if(Array.isArray(collection)){
+        
+            mapResults = _.map(collection, function(value, i, collection) {
+            
+            // If collection element passes test return true, false if otherwise
+            if(collection[i]) {
+                
+                return true;
+                
+            } else {
+                
+                return false;
+            }
+            
+        }); 
+        
+    } else {
+            
+            /** If the collection is an object return true if the properties
+             * pass all the test and false if otherwise
+             */ 
+            mapResults = _.map(collection, function(value, key, collection) {
+            
+            if(collection[key]) {
+                
+                return true;
+                
+            } else {
+                
+                return false;
+            }
+        });
+      
+    }
+    
+    /** Loop through the array and return false if the results do not pass, 
+     * return true if otherwise
+     */ 
+    for(let i = 0; i < mapResults.length; i++) {
+            
+            if(mapResults[i] === false) {
+                
+                return false;
+            }
+            
+        }
+        
+        return true;
+    
+};
+
+
+
+
+
 /** _.some
 * Arguments:
 *   1) A collection
@@ -638,6 +807,69 @@ _.reject = function(array, funky) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+/** Input: A collection and a function
+  * Output: Return boolean of true if at least one element is true, return false if 
+  * the test returns false for all elements that are false. Return true if at
+  * least one element is truth if the function is not given, otherwise return
+  * false.
+  * 
+  * Constraints: N/A
+  * 
+  * Edge cases: What if function doesn't return a boolean?
+  *             What if function is not given?
+  */
+
+
+/** Create a function called _.some that takes a collection and a function as
+ * parameters
+ */ 
+_.some = function(collection, funky) {
+    
+    // Create a new variable
+    let mapResults;
+    
+    // Check if there are 2 arguments being passed
+    if(arguments.length == 2) {
+        
+        mapResults = _.map(collection, funky);
+    
+    } else {
+        
+        // Pass the map function and assign it to a variable
+        mapResults = _.map(collection, function(value, i, collection) {
+            
+            // Return true if the collection elements pass the tests
+            if(collection[i]) {
+                
+             return true;
+             
+        } else {
+            //Return false if the elements do not pass the test
+            return false;
+        }
+        
+        });
+        
+        /** Loop through the array. Return true if results pass the test and
+         * return false if otherwise
+         */ 
+    }   for(let i = 0; i < mapResults.length; i++) {
+            
+            
+            if(mapResults[i] === true) {
+                
+                return true;
+            }
+            
+        }
+        
+        return false;
+
+};
+
+
+
+
 
 /** _.reduce
 * Arguments:
@@ -650,13 +882,50 @@ _.reject = function(array, funky) {
 *   2) Use the return value of <function> as the "previous result"
 *      for the next iteration
 *   3) On the very first iteration, use <seed> as the "previous result"
-*   4) If no <seed> was given, use the first element/value of <collection> as <seed> and continue to the next element
+*   4) If no <seed> was given, use the first element/value of <collection> 
+*       as <seed> and continue to the next element
 *   5) After the last iteration, return the return value of the final <function> call
 * Edge Cases:
 *   1) What if <seed> is not given?
 * Examples:
-*   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
+*   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex)
+*       { return previousSum + currentValue }, 0) -> 6
 */
+
+// Declare variables
+    // Declare a garden variable to hold previous results
+// Conditional statement for garden
+// Loop over array 
+    // For each loop, garden = function running over each array element
+// Return garden outside of the loop
+
+
+/** Create a function called _.reduce that takes an array, a function, and a
+ * value called 'seed' as its parameters. Assign the seed parameter to the 
+ * first element of the array
+ */ 
+_.reduce = function(array, funky, seed = array[0]) {
+    
+    // Create a new variable and assign it to 'seed'
+    let garden = seed;
+    
+    // Declare 'i' as a variable
+    let i;
+    
+    /** Check if all 3 arguments are called and assign the starting 
+     * condition depending on the number of arguments
+     */ 
+    for(arguments.length === 3 ? i = 0 : i = 1; i < array.length; i++) {
+        
+        garden = funky(garden, array[i], i);
+        
+    }
+    
+    // Return the results
+    return garden;
+};
+
+
 
 
 /** _.extend
@@ -666,13 +935,54 @@ _.reject = function(array, funky) {
 *   ...Possibly more objects
 * Objectives:
 *   1) Copy properties from <object 2> to <object 1>
-*   2) If more objects are passed in, copy their properties to <object 1> as well, in the order they are passed in.
+*   2) If more objects are passed in, copy their properties to <object 1> 
+*       as well, in the order they are passed in.
 *   3) Return the update <object 1>
 * Examples:
 *   var data = {a:"one"};
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+
+// Use spread in the function parameter
+    // Use a for loop to loop over the array of arguments
+        // Use a for in loop to loop through the objects
+            // For each key, reassign new object property to that key
+// Return object
+
+
+
+/** Create a function called _.extend that takes multiple objects as 
+ * parameters
+ */ 
+_.extend = function(myObject, ...objects) {
+    
+    // Create a for loop to loop through the array of objects
+    for(let i = 0; i < objects.length; i++) {
+        
+        // Create a for in loop to loop through the objects
+        for(let key in objects[i]) {
+            
+            // Assign the object keys to the first object's values
+            myObject[key] = objects[i][key];
+        }
+    }
+    
+    // Return the updated object
+    return myObject;
+};
+
+
+
+
+
+
+
+
+
+
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
