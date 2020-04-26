@@ -17,18 +17,48 @@
  *      performed on them. Primitive datatypes copy by value. That is, when they
  *      are assigned or passed through a function, they are copied from one 
  *      variable to the next and the original value is not changed.
- *
- *      - Complex dataypes are mutable, can be of any size and hold mixed
+ */     
+        // Copy by value:
+        let x = 50;
+        console.log(x); // Prints 50
+        let y = "Copy by value";
+        console.log(y); // Prints "Copy by value"
+        
+        let a = x;
+        console.log(a); // Prints 50
+        let b = y;
+        console.log(y); // Prints "Copy by value"
+        
+        // When we change the copy, we do not change the original
+        a = 100;
+        console.log(a, x); // Prints 100, 50
+        b = "The original is not changed";
+        console.log(b, y); // Prints "Copy by value", "The original is not changed"
+        
+
+/*      - Complex dataypes are mutable, can be of any size and hold mixed
  *      datatypes. Because they do not have a fixed size, their variables rely
  *      on references to a location storing memory, thus they copy by reference
  *      to the complex types and their values change as they are referenced.
- *
- * 2.  PRIMITIVE DATATYPES:
+ */
+        // Copy by reference:
+        let arrayToReference = [];
+        arrayToReference.push("Hello");
+        console.log(arrayToReference); // Prints ["Hello"];
+        
+        // Copies acquire changes made to the original
+        let arrayToCopy = arrayToReference;
+        arrayToReference.push("World");
+        console.log(arrayToReference, arrayToCopy); 
+        // Prints ["Hello", "World"], ["Hello", "World"];
+
+ 
+/* 2.  PRIMITIVE DATATYPES:
  *
  *      -   Numbers are numeric data. They can be whole numbers, negative
             integers, or have decimal points.: 
- */         var x = 99; // This is an example of a number.
-            console.log(x); // Prints 99
+ */         var z = 99; // This is an example of a number.
+            console.log(z); // Prints 99
     
 //      -   Strings are character data placed within quotation marks.:
             var str = "This is a string.";

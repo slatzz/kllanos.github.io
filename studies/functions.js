@@ -46,13 +46,26 @@
  *      arguments we pass are (1, 2).
  *
  *
- * 3. ASSIGNING FUNCTIONS TO VARIABLES 
+ * 3. FUNCTION EXPRESSION VS FUNCTION DECLARATION
  *
- *   - We can assign functions to variables just as we assign other datatypes
- *     to variables using the assignment operator, "=".
- *
- *     Let's practice assigning a function to a variable.
- *
+ *     // Function expression:
+ *     
+ *     functionOne();     
+ *      
+ *     let functionOne = function() {
+ *     console.log("Hello!");
+ *     }; // Just an expression. This has not run and does not output anything.
+ */      
+ 
+       // Function declaration:
+       
+       functionTwo();
+
+       function functionTwo() {
+       console.log("Hello!");
+       } // Prints "Hello!"
+ 
+/*
  *     Create a function that adds two numbers together.
  */    function add(num1, num2) {
        return num1 + num2;

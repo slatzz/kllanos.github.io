@@ -26,33 +26,96 @@ var factorial = function(n) {
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
 var sum = function(array) {
   
-    if(array.length === 0) {
-      return;
-    }
-    
-      return array[0] + sum(array.slice(1))
-    
+    /** When the array is empty, return 0
+     *
+     * While there are elements in the array, add the first element of the
+     * array to the sum function, slicing off the first element after the
+     * two values are summed together
+     */ 
+   return array.length === 0 ? 0 : array[0] + sum(array.slice(1));
+   
 };
+
 
 // 3. Sum all numbers in an array containing nested arrays.
 // Example: arraySum([1,[2,3],[[4]],5]); // 15
-var arraySum = function(array) {
-};
-
+var arraySum = function(array) {};
+////////////////////////////
+///////////////////////////
+//xxxxxxxxxxxxxxxxxxxxxxxxxx
 // 4. Check if a number is even.
 var isEven = function(n) {
+  
+  // Base case: If n is true, return true
+  if(n == 0) {
+    
+    return true;
+    // If n is odd, return false (it is not even)
+  } else if(n === 1) {
+    
+    return false;
+    
+  } else if(n < 0) {
+    // For negative integers, use the decrement operator on n
+    return isEven(-n);
+
+  } else {
+  // Else, subtract n from 2
+  return isEven(n - 2);
+  
+  }
+  
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  // Establish a base case
+  // Return 0 when n = 0
+  if(n === 0){
+    
+      return 0; 
+  }
+  // Establish a recursive case 
+  if(n > 0){
+    // When n is a positive integer, save n - 1
+    return n - 1 + sumBelow(n - 1) ;  
+   // If n is a negative integer, return the following recursive function   
+  } else if( n < 0){
+  
+    return n + 1 + sumBelow(n + 1); 
+  
+  }
 };
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
+    
+    // Create a variable and assign it to an array literal
+    let rangeArr = [];
+    
+    // Determine if integers are positive or negative
+    let step = x > y ? -1 : 1; 
+      
+      // Base case
+      // When range has reached its end, stop recursing
+      if(x === y) {
+        
+        return rangeArr;
+        
+      } else if(x === y - step) {
+        
+        return rangeArr;
+        
+      } /** Recursive case: While x and y are not equal, print numbers within
+          * their range in a new array
+          */ 
+        return rangeArr.concat(x + step, range(x + step, y));
+      
 };
+  
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
@@ -60,21 +123,57 @@ var range = function(x, y) {
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  
+  // Base case: Stop recurring when exponent === 0
+  //  base case
+    if(exp === 0) {
+      
+      return 1;
+      // Account for negative integers
+    } else if(exp < 0) {
+      
+      return 1/ exponent(base, -exp);
+      
+    } else {// Recursive case
+        // Keep finding the exponents while the exponent is not equal to 0
+        return base * exponent(base, exp - 1);
+    } 
+  
 };
-
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+  
+    /** Base case: if n === 1, return true;
+     * 
+     *  Recursive case: while n < 1 and not a power of Two, run the function
+     *  until n === 1
+     */ 
+     return n == 1 ? true : (n < 1 ? false : powerOfTwo(n / 2)); 
 };
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
+  
+  // Base case
+    // When string is empty, stop recursing and return empty string
+    if (string === "") {
+      
+        return "";
+        
+    } else { /** Recursive case: Add the 1st character to back of string
+               * until base case is met
+               */ 
+        return reverse(string.substr(1)) + string.charAt(0);
+    }
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  
+  
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -83,8 +182,8 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
-};
-
+};//xxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxx
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 var multiply = function(x, y) {
@@ -93,16 +192,17 @@ var multiply = function(x, y) {
 // 13. Write a function that divides two numbers without using the / operator  or
 // JavaScript's Math object.
 var divide = function(x, y) {
-};
-
+};//xxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxx
 // 14. Find the greatest common divisor (gcd) of two positive numbers.  The GCD of two
 // integers is the greatest integer that divides both x and y with no remainder.
 // Example:  gcd(4,36);  // 4
 // http://www.cse.wustl.edu/~kjg/cse131/Notes/Recursion/recursion.html
 // https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
 var gcd = function(x, y) {
-};
-
+//xxxxxxxxxxxxxxxxxxxxxxxxxxx
+};//xxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxx
 // 15. Write a function that compares each character of two strings and returns true if
 // both are identical.
 // compareStr('house', 'houses') // false
@@ -114,10 +214,31 @@ var compareStr = function(str1, str2) {
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str){
+  
+  // Base case
+    // Return empty array when there are no more elements in string
+  if(!str.length) {
+
+    return [];
+  } // Recursive case: Add the elements of string to new array as it recurses
+  return [str[0]].concat(createArray(str.slice(1)));
+
 };
 
 // 17. Reverse the order of an array
 var reverseArr = function (array) {
+  
+  // Create a new variable and assign to an array literal
+  let revArray = [];
+
+  // Base case:
+    // When the array is empty, return an array literal
+  if(!array.length) {
+    
+    return [];
+  } // Recursive case: Add the first element of array to back as it recurses
+  return revArray.concat(reverseArr(array.slice(1)), array[0]);
+
 };
 
 // 18. Create a new array with a given value and length.
@@ -142,28 +263,28 @@ var rMap = function(array, callback) {
 // countKeysInObj(testobj, 'r') // 1
 // countKeysInObj(testobj, 'e') // 2
 var countKeysInObj = function(obj, key) {
-};
-
+};//xxxxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // 22. Write a function that counts the number of times a value occurs in an object.
 // var testobj = {'e': {'x':'y'}, 't':{'r': {'e':'r'}, 'p': {'y':'r'}},'y':'e'};
 // countValuesInObj(testobj, 'r') // 2
 // countValuesInObj(testobj, 'e') // 1
 var countValuesInObj = function(obj, value) {
-};
-
+};//xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // 23. Find all keys in an object (and nested objects) by a provided name and rename
 // them to a provided new name while preserving the value stored at that key.
 var replaceKeysInObj = function(obj, key, newKey) {
-};
-
+};//xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // 24. Get the first n Fibonacci numbers.  In the Fibonacci Sequence, each subsequent
 // number is the sum of the previous two.
 // Example:  0, 1, 1, 2, 3, 5, 8, 13, 21, 34.....
 // fibonacci(5);  // [0, 1, 1, 2, 3, 5]
 // Note:  The 0 is not counted.
 var fibonacci = function(n) {
-};
-
+};//xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // 25. Return the Fibonacci number located at index n of the Fibonacci sequence.
 // [0,1,1,2,3,5,8,13,21]
 // nthFibo(5); // 5
@@ -193,13 +314,13 @@ var capitalizeFirst = function(array) {
 // };
 // nestedEvenSum(obj1); // 10
 var nestedEvenSum = function(obj) {
-};
-
+};//xxxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // 29. Flatten an array containing nested arrays.
 // Example: flatten([1,[2],[3,[[4]]],5]); // [1,2,3,4,5]
 var flatten = function(arrays) {
-};
-
+};//xxxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
 var letterTally = function(str, obj) {
@@ -217,8 +338,8 @@ var compress = function(list) {
 // itself.
 // Example: augmentElements([[],[3],[7]], 5); // [[5],[3,5],[7,5]]
 var augmentElements = function(array, aug) {
-};
-
+};//xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
